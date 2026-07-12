@@ -441,15 +441,3 @@ Os resultados detalhados serão apresentados em uma seção posterior, contendo 
 
 ---
 
-## 11. Observações
-
-Este trabalho não busca apenas reconhecer a classe dos objetos. O objetivo principal é avaliar a capacidade de realizar **raciocínio espacial neuro-simbólico**.
-
-A geração da cena com 25 objetos fornece muitos casos de raciocínio a partir de poucos dados, permitindo testar se as regras aprendidas em uma única cena conseguem generalizar para novas cenas aleatórias.
-
----
-
-
-
-Disciplina: Fundamentos de Inteligência Artificial
-Tema: Raciocínio Espacial Neuro-Simbólico com Logic Tensor Networks
