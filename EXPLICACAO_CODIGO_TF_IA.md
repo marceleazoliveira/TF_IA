@@ -844,7 +844,7 @@ results/resultados_tarefa4.csv
 results/resumo_resultados.csv
 ```
 
-Esses arquivos permitem que o professor veja os resultados sem precisar rodar o notebook inteiro.
+
 
 ---
 
