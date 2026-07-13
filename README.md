@@ -288,156 +288,127 @@ Adaptação da consulta original com cone:
 ```
 
 ---
+### 6. Uso de LTN e LTNtorch
 
-## 6. Tecnologias utilizadas
+A implementação principal utiliza predicados neurais em PyTorch e operadores de lógica fuzzy diferenciável para representar regras do tipo LTN.
 
-O projeto foi desenvolvido em Python, usando o Google Colab.
+Foram usados operadores como:
 
-Bibliotecas principais:
-
-```text
-numpy
-pandas
-matplotlib
-torch
-LTNtorch
-```
-
-A implementação utiliza modelos neurais em PyTorch e operadores de lógica fuzzy diferenciável inspirados em Logic Tensor Networks, como:
-
-```text
 NOT
 AND
 OR
 IMPLIES
 IFF
 satAgg
-```
 
----
+Além disso, foi adicionada uma seção explícita usando a API oficial do LTNtorch, com:
 
-## 7. Como executar o código
+ltn.Predicate
+ltn.Variable
+ltn.Connective
+ltn.Quantifier
+ltn.fuzzy_ops.SatAgg
 
-### 7.1 Executar pelo Google Colab
+Essa seção demonstra a formulação das regras LeftOf e RightOf usando diretamente a estrutura do LTNtorch.
+
+As regras avaliadas nessa seção são:
+
+∀x ¬LeftOf(x,x)
+
+∀x,y LeftOf(x,y) → ¬LeftOf(y,x)
+
+∀x,y LeftOf(x,y) ↔ RightOf(y,x)
+
+∀x,y,z (LeftOf(x,y) ∧ LeftOf(y,z)) → LeftOf(x,z)
+
+O valor SatAgg_LTNtorch representa o grau de satisfação da base lógica usando a API oficial do LTNtorch.
+
+### 7. Tecnologias utilizadas
+
+O projeto foi desenvolvido em Python, usando o Google Colab.
+
+Bibliotecas principais:
+
+numpy
+pandas
+matplotlib
+torch
+LTNtorch
+### 8. Como executar
+### 8.1 Executando no Google Colab
 
 A forma recomendada de execução é pelo Google Colab.
 
 Passos:
 
-1. Abrir o notebook `TF_IA.ipynb`.
-2. Selecionar a opção:
-
-```text
+Abrir o notebook TF_IA.ipynb.
+Selecionar:
 Ambiente de execução → Executar tudo
-```
-
-3. Caso necessário, instalar o LTNtorch executando a célula:
-
-```python
+Caso necessário, instalar o LTNtorch executando:
 !pip install LTNtorch
-```
-
-4. Rodar as células na ordem em que aparecem no notebook.
-
----
-
-### 7.2 Executar localmente
+Rodar as células na ordem em que aparecem no notebook.
+### 8.2 Executando localmente
 
 Também é possível executar localmente usando Jupyter Notebook.
 
 Primeiro, instale as dependências:
 
-```bash
-pip install numpy pandas matplotlib torch LTNtorch
-```
+pip install -r requirements.txt
 
 Depois, abra o notebook:
 
-```bash
 jupyter notebook TF_IA.ipynb
-```
 
 Ou, se estiver usando Jupyter Lab:
 
-```bash
 jupyter lab TF_IA.ipynb
-```
+### 9. Dependências
 
----
+O arquivo requirements.txt deve conter:
 
-## 8. Estrutura geral do notebook
+numpy
+pandas
+matplotlib
+torch
+LTNtorch
+notebook
+11. Resultados
 
-O notebook está organizado nas seguintes partes:
+Os resultados são salvos na pasta results/.
 
-```text
-1. Importação das bibliotecas
-2. Configurações gerais
-3. Criação do vetor de características
-4. Geração dos objetos
-5. Controle de overlapping
-6. Visualização da cena 2D
-7. Geração da cena de treino
-8. Geração das cenas de teste
-9. Relações espaciais verdadeiras
-10. Predicados neurais
-11. Treinamento de LeftOf e RightOf
-12. Treinamento de Below e Above
-13. Implementação de CanStack
-14. Implementação de CloseTo
-15. Implementação de InBetween
-16. Raciocínio composto
-17. Avaliação com métricas
-```
+Arquivos esperados:
 
----
+Arquivo	Conteúdo
+resultados_left_right.csv	Métricas e satisfação das regras para LeftOf e RightOf
+resultados_below_above.csv	Métricas e satisfação das regras para Below e Above
+resultados_canstack.csv	Métricas da regra composta CanStack
+resultados_inbetween.csv	Métricas e satisfação lógica de InBetween
+resultados_tarefa4.csv	Resultados das consultas compostas
+resumo_resultados.csv	Média geral dos principais resultados
 
-## 9. Métricas utilizadas
+As métricas usadas são:
 
-As métricas utilizadas foram:
-
-```text
 Accuracy
 Precision
 Recall
 F1 Score
 satAgg
-```
 
-As métricas de classificação são calculadas a partir de:
+A avaliação é feita em:
 
-```text
-TP: verdadeiros positivos
-TN: verdadeiros negativos
-FP: falsos positivos
-FN: falsos negativos
-```
-
-A satisfação lógica das regras é medida por `satAgg`, que indica o grau médio de satisfação das fórmulas fuzzy.
-
-Valores próximos de `1.0` indicam maior satisfação das regras.
-
----
-
-## 10. Resultados
-
-Os resultados são avaliados em:
-
-```text
 1 cena de treino
 5 cenas de teste aleatórias
-```
 
-Para cada cena de teste, são calculados:
+Os resultados detalhados e exemplos de execução serão adicionados posteriormente.
 
-```text
-Accuracy
-Precision
-Recall
-F1 Score
-satAgg
-```
+### 10. Figuras
 
-Os resultados detalhados serão apresentados em uma seção posterior, contendo exemplos de execução, tabelas de saída e análise dos valores obtidos.
+As figuras geradas pelo notebook devem ser salvas na pasta figures/.
 
----
+Exemplos:
 
+figures/cena_treino.png
+figures/cena_teste_1.png
+figures/cena_teste_2.png
+
+Essas imagens representam as cenas 2D geradas, contendo 25 objetos com formas, cores, tamanhos e posições distintas.
