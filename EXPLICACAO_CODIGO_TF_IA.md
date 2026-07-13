@@ -2,7 +2,7 @@
 
 Este arquivo foi criado para complementar o notebook `TF_IA.ipynb`.
 
-A ideia é que o professor consiga entender o fluxo do trabalho sem precisar analisar cada célula longa do notebook.  
+  
 O notebook continua sendo o código principal; este arquivo apenas destaca as partes mais importantes, explica o papel de cada bloco e mostra a ordem lógica da implementação.
 
 ---
