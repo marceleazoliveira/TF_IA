@@ -1,0 +1,6 @@
+cena,sat_q1_pequeno_abaixo_elipse_esquerda_quadrado,q1_objeto_x,q1_objeto_y_elipse,q1_objeto_z_quadrado,sat_q2_retangulo_verde_entre,q2_objeto_x_retangulo_verde,q2_objeto_y,q2_objeto_z,sat_q3_triangulos_close_same,q3_menor_satisfacao,q3_maior_satisfacao
+1,1.0,14,22,3,1.0,17,0,20,0.9976342916488647,0.040805500000715256,1.0
+2,1.0,6,9,23,1.0,19,8,21,0.9999951124191284,0.997316300868988,1.0
+3,1.0,7,16,8,1.0,24,0,22,0.9966689944267273,0.0004079090722370893,1.0
+4,1.0,1,5,6,0.0,0,1,2,0.9999998211860657,0.9998753070831299,1.0
+5,1.0,7,21,12,1.0,2,5,0,0.9999927878379822,0.9976709485054016,1.0
